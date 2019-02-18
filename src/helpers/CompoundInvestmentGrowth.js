@@ -6,6 +6,7 @@ export default class CompoundInvestmentGrowth {
         this.inflationRate = (inflationRate / 100.0);
         this.currentTax = (currentTax / 100);
         this.futureTax = (futureTax / 100);
+        this.taxAdjustPrincipal()
     }
 
     futureValue () {  
@@ -19,11 +20,12 @@ export default class CompoundInvestmentGrowth {
     }
 
     afterTaxFutureValue () {
-
+        let total = this.futureValue() * (1 - this.futureTax)
+        return Number(Math.round(total + 'e2')+'e-2');
     }
 
     taxAdjustPrincipal () {
-        this.principal = (this.principal / 1 - currentTax)
+        this.principal = (this.principal / (1 - this.currentTax))
     }
 
 }
