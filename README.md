@@ -1,68 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Problem: TFSA vs RRSP Calculator
+The goal of this test is to create a financial calculator that compares using a TFSA (tax-free savings account) and RRSP (registered retirement savings plan) to save money.
 
-## Available Scripts
+RRSPs allow Canadians to defer paying taxes until they withdraw money from their account. In practice Canadians get a tax refund on the money they deposited into RSP. A TFSA, on the other hand, allows Canadians to save their after tax money in a way that the future growth (interest earned) remains tax-free forever so all future withdrawals are not taxed.
 
-In the project directory, you can run:
 
-### `npm start`
+This calculator will require the following input fields
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Current Marginal Tax Rate - This is the highest income tax bracket of the “user”
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- Average Tax Rate in Retirement - This is the average income tax the “user” pays in retirement
 
-### `npm test`
+- Amount of Deposit - The amount of money being deposited in the comparison
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Years Invested - The number of years before this money is withdrawn again
 
-### `npm run build`
+- Return on Investment - Rate at which the invested money grows each year
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Inflation Rate - Expected rate of inflation each year (used to calculate the real rate of return)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+It should produce the following results
 
-### `npm run eject`
+- Amount of after-tax deposited in the TFSA vs RRSP (i.e., the RRSP deposit amount should be equivalent to the TFSA deposit in after-tax dollars, which should be larger considering that RRSP deposits are made tax-free)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- The future value (in today’s dollars) of the savings at the end of the investment period
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- The tax paid upon withdrawal (only applies to money saved in the RRSP)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- The after-tax future value of the investment at the end of the investment period
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Useful Formulas and Resources
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The following resources help explain the necessary financial formulas and the basics of comparing TFSAs and RRSPs
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+- http://www.financeformulas.net/Real_Rate_of_Return.html
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- http://www.financeformulas.net/Future_Value.html
 
-### Analyzing the Bundle Size
+- http://www.theglobeandmail.com/globe-investor/personal-finance/the-wealthy-barber-explains-tfsa-or-rrsp/article1356709/?page=all
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/tax-free-savings-account.html
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+What are we looking for?
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+We are interested in how you solve the problem as well as your ability to understand and apply the financial concepts necessary to solve it. We will also be looking, subjectively, at coding style, code quality, code readability, tests, and effective use of the language's idioms and software design patterns. If you are using any frameworks we will be consider how you leverage them to write better code or simplify the problem. If you use a cli generator please clearly indicate the files you add or edit.
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+While not necessary credit will be given for providing a solid user experience. Communicating what the calculator does for the user and ensuring they can easily figure out how to use it and understand what the results presented mean is important.
 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Feel free to ask questions if anything is uncertain or confusing.
