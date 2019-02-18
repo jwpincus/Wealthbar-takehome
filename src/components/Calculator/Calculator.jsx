@@ -25,12 +25,26 @@ class Calculator extends React.Component {
         });
     };
 
-
+    compoundInterest (principal, years, rate) {
+        let n = 1;
+        let P = principal;
+        let r = rate;
+        let t = years;
+    
+        let total =  P * Math.pow(1 + r/n, t);
+        return Number(Math.round(total + 'e2')+'e-2');
+    };
 
     render () {
-        
+        const rrspPrincipal = 0;
+        const rrspFutureValue = 0;
+        const rrspTax = 0;
+        const rrspAfterTax = 0;
+        const tfsaPrincipal = 0;
+        const tfsaFutureValue = 0;
        return ( 
-            <div className={classes.CalculatorInputs}>
+           <div>
+               <div className={classes.CalculatorInputs}>
                 <h2>Savings return calculator</h2>
                 <label htmlFor="currentTax">What is your current marginal tax rate, represented as a percentage. <br/>This is also known as your tax bracket. Remember to combine provincial and federal taxes.</label>
                 <input 
@@ -79,6 +93,24 @@ class Calculator extends React.Component {
                     onChange={this.inputChangeHandler}
                     value={this.state.inflation}/>
             </div>
+
+            <div className={classes.Returns}>
+                <div className={classes.Account}>
+                    <h2>RRSP returns</h2>
+                    <p>Deposited ammount: {rrspPrincipal}</p>
+                    <p>Real future value (adjusted for inflation): {rrspFutureValue}</p>
+                    <p>Tax to be paid on withdrawl: {rrspTax}</p>
+                    <p>Real future value after taxes: {rrspAfterTax}</p>
+                </div>
+                <div className={classes.Account}>
+                    <h2>TFSA returns</h2>
+                    <p>Deposited ammount: {tfsaPrincipal}</p>
+                    <p>Real future value (adjusted for inflation): {tfsaFutureValue}</p>
+                    <p>note: since taxes are paid on TFSA accounts before investment, no tax is due on withdrawal</p>
+                </div>
+            </div>
+           </div>
+            
        )
     };
 };
