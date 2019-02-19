@@ -46,8 +46,8 @@ class Calculator extends React.Component {
                         <option value={15}>15% ($0-$45,282)</option>
                         <option value={20.5}>20.5% ($45,282-$90,563)</option>
                         <option value={26}>26% ($90,563-$140,388)</option>
-                        <option value={29}>26% ($140,388-$200,000)</option>
-                        <option value={33}>26% ($200,000+)</option>
+                        <option value={29}>29% ($140,388-$200,000)</option>
+                        <option value={33}>33% ($200,000+)</option>
                     </select>
 
                 <label htmlFor="futureTax"><b> What is your anticipated future tax bracket based on retirement income?</b></label>
@@ -57,8 +57,8 @@ class Calculator extends React.Component {
                         <option value={15}>15% ($0-$45,282)</option>
                         <option value={20.5}>20.5% ($45,282-$90,563)</option>
                         <option value={26}>26% ($90,563-$140,388)</option>
-                        <option value={29}>26% ($140,388-$200,000)</option>
-                        <option value={33}>26% ($200,000+)</option>
+                        <option value={29}>29% ($140,388-$200,000)</option>
+                        <option value={33}>33% ($200,000+)</option>
                     </select>
 
                 <label htmlFor="principal"> <b>What amount are you planning on investing?</b><p>Input this as an after tax number, we'll do the calculation for your taxes, and add the taxes back to the RRSP!</p></label>
