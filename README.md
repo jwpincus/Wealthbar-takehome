@@ -1,4 +1,22 @@
-The Problem: TFSA vs RRSP Calculator
+# Readme for WealthBar Take-home challenge
+
+## setup
+This project is managed using NPM
+
+1. Clone this repo using git
+2. from inside the root folder run `npm install`
+3. To run a dev server run `npm start`
+4. To run the unit tests on the calculator functions run `jest`
+
+## Design
+
+create-react-app was used to scaffold out a basic react application. React was chosen based on ability to rapidly build out UI.
+
+The presentation layer and the math logic are split out for testing, and out of respect for seperation of concerns. Unit testing is done using the Jest library, and the CompoundInvestmentGrowth class was developed using TDD. 
+
+This is admittedly a heavyweight choice of tools for something that could also have been accomplished with HTML, CSS, and JS. I feel that the testing advantages, and ability to take a more object oriented approach justifies this.
+
+## The Problem: TFSA vs RRSP Calculator
 The goal of this test is to create a financial calculator that compares using a TFSA (tax-free savings account) and RRSP (registered retirement savings plan) to save money.
 
 RRSPs allow Canadians to defer paying taxes until they withdraw money from their account. In practice Canadians get a tax refund on the money they deposited into RSP. A TFSA, on the other hand, allows Canadians to save their after tax money in a way that the future growth (interest earned) remains tax-free forever so all future withdrawals are not taxed.
