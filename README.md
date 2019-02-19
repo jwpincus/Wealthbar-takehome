@@ -16,6 +16,16 @@ The presentation layer and the math logic are split out for testing, and out of 
 
 This is admittedly a heavyweight choice of tools for something that could also have been accomplished with HTML, CSS, and JS. I feel that the testing advantages, and ability to take a more object oriented approach justifies this.
 
+The code is, as much as possible, meant to be self documenting through testing careful naming.
+
+## Known Issues
+
+This Calculator does not address the following:
+
+- Provincial tax rates
+- Contribution limits and forced liquidation age for RRSP
+- Additional yearly contributions
+
 ## The Problem: TFSA vs RRSP Calculator
 The goal of this test is to create a financial calculator that compares using a TFSA (tax-free savings account) and RRSP (registered retirement savings plan) to save money.
 
