@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Calculator.module.css';
+import CompoundInvestmentGrowth from '../../helpers/CompoundInvestmentGrowth';
 
 class Calculator extends React.Component {
     constructor (props) {
@@ -25,28 +26,16 @@ class Calculator extends React.Component {
         });
     };
 
-    compoundInterest (principal, years, rate) {
-        let n = 1;
-        let P = principal;
-        let r = rate;
-        let t = years;
-    
-        let total =  P * Math.pow(1 + r/n, t);
-        return Number(Math.round(total + 'e2')+'e-2');
-    };
-
     render () {
-        const rrspPrincipal = 0;
-        const rrspFutureValue = 0;
-        const rrspTax = 0;
-        const rrspAfterTax = 0;
-        const tfsaPrincipal = 0;
-        const tfsaFutureValue = 0;
+        const rrsp = new CompoundInvestmentGrowth(this.state.principal, this.state.years, this.state.returnRate, this.state.inflation, this.state.currentTax, this.state.futureTax);
+        const tfsa = new CompoundInvestmentGrowth(this.state.principal, this.state.years, this.state.returnRate, this.state.inflation, 0, 0);
+        console.log(rrsp)
+
        return ( 
            <div>
                <div className={classes.CalculatorInputs}>
-                <h2>Savings return calculator</h2>
-                <label htmlFor="currentTax">What is your current marginal tax rate, represented as a percentage. <br/>This is also known as your tax bracket. Remember to combine provincial and federal taxes.</label>
+                <h2>Retirement savings calculator</h2>
+                <label htmlFor="currentTax">What is your current marginal tax rate, represented as a percentage? <br/>This is also known as your tax bracket. Remember to combine provincial and federal taxes.</label>
                 <input 
                     type="number" 
                     name="currentTax"
@@ -54,7 +43,7 @@ class Calculator extends React.Component {
                     onChange={this.inputChangeHandler}
                     value={this.state.currentTax}/>
 
-                <label htmlFor="futureTax">What is your anticipated future tax rate. <br/> This is the marginal tax rate, or tax bracket that you anticipate paying at the time that you start withdrawing your savings.</label>
+                <label htmlFor="futureTax">What is your anticipated future tax rate? <br/> This is the marginal tax rate, or tax bracket that you anticipate paying at the time that you start withdrawing your savings.</label>
                 <input 
                     type="number" 
                     name="futureTax"
@@ -62,7 +51,7 @@ class Calculator extends React.Component {
                     onChange={this.inputChangeHandler}
                     value={this.state.futureTax}/>
 
-                <label htmlFor="principal">What amount are you planning on investing? <br/> Input this as an after tax number, we'll do the calculation for your tax refund, and add it to the total!</label>
+                <label htmlFor="principal">What amount are you planning on investing? <br/> Input this as an after tax number, we'll do the calculation for your taxes, and add it to the total if necessary!</label>
                 <input 
                     type="number" 
                     name="principal"
@@ -97,15 +86,15 @@ class Calculator extends React.Component {
             <div className={classes.Returns}>
                 <div className={classes.Account}>
                     <h2>RRSP returns</h2>
-                    <p>Deposited ammount: {rrspPrincipal}</p>
-                    <p>Real future value (adjusted for inflation): {rrspFutureValue}</p>
-                    <p>Tax to be paid on withdrawl: {rrspTax}</p>
-                    <p>Real future value after taxes: {rrspAfterTax}</p>
+                    <p>Deposited ammount: ${rrsp.principal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
+                    <p>Real future value (adjusted for inflation): ${rrsp.futureValue().toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
+                    <p>Tax to be paid on withdrawal: ${rrsp.taxPaid().toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
+                    <p>Real future value after taxes: ${rrsp.afterTaxFutureValue().toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
                 </div>
                 <div className={classes.Account}>
                     <h2>TFSA returns</h2>
-                    <p>Deposited ammount: {tfsaPrincipal}</p>
-                    <p>Real future value (adjusted for inflation): {tfsaFutureValue}</p>
+                    <p>Deposited ammount: {tfsa.principal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
+                    <p>Real future value (adjusted for inflation): {tfsa.futureValue().toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
                     <p>note: since taxes are paid on TFSA accounts before investment, no tax is due on withdrawal</p>
                 </div>
             </div>

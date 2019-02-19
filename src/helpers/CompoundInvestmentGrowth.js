@@ -25,7 +25,11 @@ export default class CompoundInvestmentGrowth {
     }
 
     taxAdjustPrincipal () {
-        this.principal = (this.principal / (1 - this.currentTax))
+        this.principal = Number(Math.round((this.principal / (1 - this.currentTax)) + 'e2')+'e-2');
+    }
+
+    taxPaid () {
+        return Number(Math.round((this.futureValue() - this.afterTaxFutureValue()) + 'e2')+'e-2');
     }
 
 }
