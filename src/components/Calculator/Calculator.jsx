@@ -6,7 +6,7 @@ class Calculator extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            currentTax: 0.0,
+            currentTax: 15,
             futureTax: 0.0,
             principal: 0.0,
             years: 0,
