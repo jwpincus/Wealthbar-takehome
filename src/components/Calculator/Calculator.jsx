@@ -68,7 +68,7 @@ class Calculator extends React.Component {
                     onChange={this.inputChangeHandler}
                     value={this.state.principal}/>
                 
-                <label htmlFor="years"><b>How long will you give your money to grow?</b></label>
+                <label htmlFor="years"><b>How many years will you give your money to grow?</b></label>
                 <input 
                     type="number" 
                     name="years"
